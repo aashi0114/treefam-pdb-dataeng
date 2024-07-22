@@ -32,7 +32,7 @@ def RemoveInvalids(recordslist):
 
 
 
-def RemovePhyloXML(trees_input, bad_sequences):
+def RemoveClades(trees_input, bad_sequences):
     new_trees = []
 
     for tree in trees_input:        
@@ -47,8 +47,8 @@ def RemovePhyloXML(trees_input, bad_sequences):
     
 
 
-dir = "/Users/nivinattudurai/Holmes Lab/treefam_family_data/" # directory w/ data
-newDir = "/Users/nivinattudurai/Holmes Lab/Cleaned/" # directory to save cleaned data
+dir = "" # directory w/ data
+newDir = "" # directory to save cleaned data
 
 
 for filename in tqdm(os.listdir(dir)):
@@ -72,7 +72,7 @@ for filename in tqdm(os.listdir(dir)):
             f = os.path.join(dir, filename)
             if (header in f) and (".xml" in f):
                 trees = list(Phylo.parse(f, "phyloxml"))
-                phylotree = RemovePhyloXML(trees, bad_seq)
+                phylotree = RemoveClades(trees, bad_seq)
                 cleaned = newDir + header + ".cleaned.xml"
                 cleanedNewick = newDir + header + ".cleaned.txt"
                 Phylo.write(phylotree, cleaned, "phyloxml")
