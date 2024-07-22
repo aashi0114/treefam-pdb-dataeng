@@ -39,7 +39,6 @@ def RemoveClades(trees_input, bad_sequences):
         for clade in tree.find_clades():
             if clade.name in bad_sequences: # cleave tree clade ids that match with a bad sequences
                 tree.prune(clade)
-        
         new_trees.append(tree) 
 
     return new_trees
