@@ -77,7 +77,10 @@ for filename in tqdm(os.listdir(dir)):
                 Phylo.convert(cleaned, "phyloxml", cleanedNewick, "newick")
                 os.remove(cleaned)
 
-
+names = newDir + "names.txt"
+with open(names, 'w') as f:
+    for name in seqNames:
+        f.write(f"{name}\n")
     
 
 
