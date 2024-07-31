@@ -84,6 +84,7 @@ def sort_files(indir, outdir):
     """Sorts downloaded files into directories based on the first character of the PDB ID."""
     if not os.path.exists(outdir):
         os.makedirs(outdir)
+        x=0
 
     print(f"Sorting files from {indir} into {outdir}")
     for filepath in Path(indir).glob("*.pdb.gz"):
